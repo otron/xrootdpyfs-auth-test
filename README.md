@@ -15,3 +15,16 @@ Testing EOS authentication for xrootdpyfs
     d. `$ python setup.py install --user`
 3. Install `xrootdpyfs`
     - `$ pip install xrootdpyfs`
+
+
+## Generating a kerberos keytab file
+Kudos goes to the [source on the interwebs](https://kb.iu.edu/d/aumh).
+
+`ktutil -k 'keytab.file' add -p PRINCIPAL -e ENCTYPE`
+(will prompt for the password of PRINCIPAL)
+
+Outputs a keytab file with credentials for the given principal.
+For a CERN principal, it'd be on the form `UNAME@CERN.CH`,
+where you'd replace `UNAME` with your CERN username.
+Enctype is... uh. It works with `arcfour-hmac-md5`.
+
